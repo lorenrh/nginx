@@ -1,0 +1,17 @@
+apiVersion: v1alpha1
+kind: ServiceTemplate
+metadata:
+  name: nginx
+  platforms:
+    - linux
+spec:
+  description: An HTTP and reverse proxy server
+  icon: https://applicationdesigner.s3.amazonaws.com/assets/nginx.png
+  options:
+  - defaultValue: "80"
+    label: External port
+    name: externalPort
+    type: hostPort
+  source:
+    image: docker.io/applicationdesigner/nginx:latest
+  title: nginx
