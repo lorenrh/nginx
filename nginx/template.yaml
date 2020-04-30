@@ -6,12 +6,12 @@ metadata:
     - linux
 spec:
   description: An HTTP and reverse proxy server
-  icon: https://applicationdesigner.s3.amazonaws.com/assets/nginx.png
+  icon: https://docker-application-template.s3.amazonaws.com/assets/nginx.png
   parameters:
   - defaultValue: "80"
-    label: External port
+    description: External port
     name: externalPort
     type: hostPort
   source:
-    image: docker.io/loreenrh/nginx:latest
+    image: docker.io/__ORG__/nginx:__TAG__
   title: nginx

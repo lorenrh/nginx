@@ -1,0 +1,24 @@
+server {
+    listen       80;
+    server_name  localhost;
+
+{{- if .HasService "golang" }}
+    location / {
+        proxy_pass   http://{{ .ServiceName "golang" }}:8000;
+    }
+{{- else if .HasService "flask" }}
+    location / {
+        proxy_pass   http://{{ .ServiceName "flask" }}:5000;
+    }
+{{- else if .HasService "express" }}
+    location / {
+        proxy_pass   http://{{ .ServiceName "express" }};
+    }
+{{- else }}
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+{{- end }}
+
+}

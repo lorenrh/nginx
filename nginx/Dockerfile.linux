@@ -1,0 +1,5 @@
+ARG ORG
+ARG TAG
+FROM dockertemplatedev/interpolator:223f90d2849e484bf4cfac3731886c3f3dbae665 as interpolator
+
+COPY assets .
